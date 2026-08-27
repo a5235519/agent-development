@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-workbench.local/schemas/harness-manifest.schema.json",
+  "title": "Infinite Multimodal Canvas Harness Manifest",
+  "type": "object",
+  "required": ["catalogVersion", "types", "definitions"],
+  "properties": {
+    "catalogVersion": { "type": "string", "minLength": 1 },
+    "types": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+    "definitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "version", "category", "title", "inputs", "outputs"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9.-]+$" },
+          "version": { "type": "string" },
+          "category": { "type": "string" },
+          "title": { "type": "string" },
+          "executorRef": { "type": ["string", "null"] },
+          "inputs": { "$ref": "#/$defs/ports" },
+          "outputs": { "$ref": "#/$defs/ports" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "$defs": {
+    "ports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "required", "cardinality"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "required": { "type": "boolean" },
+          "cardinality": { "enum": ["one", "many"] },
+          "minItems": { "type": "integer", "minimum": 0 },
+          "maxItems": { "type": "integer", "minimum": 1 },
+          "assetRole": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

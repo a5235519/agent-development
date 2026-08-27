@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1320" viewBox="0 0 1800 1320">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0a0e14"/><stop offset="1" stop-color="#121925"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#202733"/><stop offset="1" stop-color="#171d26"/></linearGradient>
+    <linearGradient id="primary" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3478ff"/><stop offset="1" stop-color="#665cff"/></linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#354052" opacity=".38"/></pattern>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000" flood-opacity=".3"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#6e82a8"/></marker>
+    <style>
+      .t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;fill:#eef2f8}.muted{fill:#929dad}.dim{fill:#697588}.blue{fill:#78a0ff}.green{fill:#75da8d}.orange{fill:#ffbd58}.red{fill:#ff716b}.purple{fill:#ab91ff}
+      .h1{font-size:30px;font-weight:700}.h2{font-size:22px;font-weight:650}.h3{font-size:17px;font-weight:650}.body{font-size:15px}.small{font-size:13px}
+      .panel{fill:url(#card);stroke:#3d4859;stroke-width:1.4}.screen{fill:#10151d;stroke:#485467;stroke-width:1.5}.row{fill:#1a212b;stroke:#354052}.line{fill:none;stroke:#6e82a8;stroke-width:2;marker-end:url(#arrow)}.dash{fill:none;stroke:#56647a;stroke-width:1.7;stroke-dasharray:7 6;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1800" height="1320" fill="url(#bg)"/><rect width="1800" height="1320" fill="url(#dots)"/>
+
+  <!-- Top bar -->
+  <rect width="1800" height="68" fill="#080b10" stroke="#252d39"/>
+  <circle cx="34" cy="34" r="12" fill="#4e7cff"/><text x="58" y="42" class="t h2">柠萌旅行记 Agent 管理台</text>
+  <text x="370" y="41" class="t body muted">制作工作台</text><text x="485" y="41" class="t body blue">管理控制台</text>
+  <text x="1395" y="41" class="t small green">● 系统正常</text><text x="1515" y="41" class="t small muted">管理员 dandan</text><text x="1695" y="41" class="t body">⋯</text>
+
+  <!-- Sidebar -->
+  <g transform="translate(20 90)">
+    <rect width="215" height="1170" rx="16" fill="#0f141c" stroke="#313a49"/>
+    <text x="20" y="36" class="t small muted">管理导航</text>
+    <g class="t body">
+      <rect x="10" y="54" width="195" height="42" rx="9" fill="#20345d"/><text x="28" y="81" class="blue">管理总览</text>
+      <text x="28" y="133">工程治理</text><text x="28" y="181">工作流模板</text><text x="28" y="229">节点与 Skill</text><text x="28" y="277">Runner 集群</text><text x="28" y="325">资产规范</text><text x="28" y="373">权限与审批</text><text x="28" y="421">运行与问题</text><text x="28" y="469">审计与收据</text><text x="28" y="517">系统设置</text>
+    </g>
+    <line x1="18" y1="550" x2="197" y2="550" stroke="#313a49"/>
+    <text x="20" y="582" class="t small muted">当前环境</text><rect x="18" y="600" width="179" height="74" rx="9" class="row"/>
+    <text x="32" y="627" class="t body">Production</text><text x="32" y="651" class="t small green">3 Runner 在线</text>
+    <text x="20" y="719" class="t small muted">管理原则</text>
+    <text x="20" y="747" class="t small">配置不直接改运行态</text><text x="20" y="773" class="t small">发布必须形成新版本</text><text x="20" y="799" class="t small">变更必须计算影响</text><text x="20" y="825" class="t small">危险操作必须审批</text><text x="20" y="851" class="t small">所有动作进入审计</text>
+  </g>
+
+  <!-- Management overview actual screen -->
+  <g transform="translate(270 90)" filter="url(#shadow)">
+    <rect width="1460" height="330" rx="16" class="screen"/>
+    <text x="24" y="38" class="t h2">管理总览</text><text x="24" y="65" class="t small muted">跨工程、工作流与执行环境的运营视图</text>
+    <rect x="1180" y="22" width="122" height="38" rx="8" class="row"/><text x="1204" y="47" class="t small">最近 24 小时</text><rect x="1312" y="22" width="124" height="38" rx="8" fill="url(#primary)"/><text x="1341" y="47" class="t small">新建管理员任务</text>
+    <g transform="translate(24 88)">
+      <rect width="210" height="92" rx="11" class="panel"/><text x="16" y="28" class="t small muted">活跃工程</text><text x="16" y="62" class="t h1">12</text><text x="70" y="62" class="t small green">+2 本周</text>
+      <rect x="226" width="210" height="92" rx="11" class="panel"/><text x="242" y="28" class="t small muted">运行中 NodeRun</text><text x="242" y="62" class="t h1">7</text><text x="296" y="62" class="t small blue">3 Runner</text>
+      <rect x="452" width="210" height="92" rx="11" class="panel"/><text x="468" y="28" class="t small muted">阻塞问题</text><text x="468" y="62" class="t h1 red">5</text><text x="522" y="62" class="t small red">P0 × 1</text>
+      <rect x="678" width="210" height="92" rx="11" class="panel"/><text x="694" y="28" class="t small muted">待业务审批</text><text x="694" y="62" class="t h1 orange">3</text><text x="748" y="62" class="t small orange">最久 4h</text>
+      <rect x="904" width="210" height="92" rx="11" class="panel"/><text x="920" y="28" class="t small muted">STALE 节点</text><text x="920" y="62" class="t h1 purple">9</text><text x="974" y="62" class="t small purple">4 工程</text>
+      <rect x="1130" width="282" height="92" rx="11" class="panel"/><text x="1146" y="28" class="t small muted">Runner 健康度</text><text x="1146" y="62" class="t h2 green">3 / 3 在线</text><text x="1290" y="62" class="t small muted">队列 11</text>
+    </g>
+    <g transform="translate(24 196)">
+      <rect width="680" height="108" rx="11" class="panel"/><text x="16" y="27" class="t h3">需要处理</text>
+      <text x="16" y="56" class="t small red">● EP01：S13 缺失导致草图 QA 阻塞</text><text x="480" y="56" class="t small blue">查看工程 ›</text>
+      <text x="16" y="81" class="t small orange">● workflow v1.4 待发布，影响 4 个工程</text><text x="480" y="81" class="t small blue">查看影响 ›</text>
+      <text x="16" y="102" class="t small purple">● runner-03 心跳延迟，2 个任务待迁移</text>
+      <rect x="700" width="712" height="108" rx="11" class="panel"/><text x="716" y="27" class="t h3">最近管理操作</text>
+      <text x="716" y="56" class="t small muted">10:24　workflow v1.3 发布　by dandan　receipt #a83c</text><text x="716" y="81" class="t small muted">10:12　runner-02 启用　by ops　receipt #f20d</text><text x="716" y="102" class="t small muted">09:48　审批策略更新　by admin　receipt #17b2</text>
+    </g>
+  </g>
+
+  <!-- Module cards row 1 -->
+  <g transform="translate(270 455)">
+    <text x="0" y="0" class="t h2">管理模块与关键交互</text>
+    <g transform="translate(0 24)" filter="url(#shadow)">
+      <rect width="345" height="238" rx="15" class="panel"/><text x="18" y="34" class="t h3">A · 工程治理</text><text x="18" y="59" class="t small muted">工程列表 → Manifest → 治理操作</text>
+      <rect x="18" y="78" width="309" height="38" rx="8" class="row"/><text x="30" y="102" class="t small">搜索 / Frame / Gate / Owner / 状态</text>
+      <text x="20" y="144" class="t small">查看 manifest 与允许写入目录</text><text x="20" y="169" class="t small">锁定 / 解锁 / 归档 / 恢复为新版本</text><text x="20" y="194" class="t small">转移 Owner / 导出工程证据包</text>
+      <rect x="18" y="207" width="130" height="25" rx="6" fill="#20345d"/><text x="38" y="225" class="t small blue">进入工程只读视图</text>
+    </g>
+    <g transform="translate(370 24)" filter="url(#shadow)">
+      <rect width="345" height="238" rx="15" class="panel"/><text x="18" y="34" class="t h3">B · 工作流模板</text><text x="18" y="59" class="t small muted">草稿 → 校验 → 影响分析 → 发布</text>
+      <rect x="18" y="78" width="92" height="32" rx="7" fill="#1e2938"/><text x="35" y="99" class="t small">v1.3 已发布</text><rect x="120" y="78" width="92" height="32" rx="7" fill="#2a2437"/><text x="137" y="99" class="t small purple">v1.4 草稿</text>
+      <text x="20" y="142" class="t small">可视化 Frame / NodeDefinition 编辑</text><text x="20" y="167" class="t small">Schema、Gate、Skill 路由完整校验</text><text x="20" y="192" class="t small">发布前列出受影响工程与迁移策略</text>
+      <rect x="18" y="207" width="112" height="25" rx="6" fill="url(#primary)"/><text x="42" y="225" class="t small">发布新版本</text>
+    </g>
+    <g transform="translate(740 24)" filter="url(#shadow)">
+      <rect width="345" height="238" rx="15" class="panel"/><text x="18" y="34" class="t h3">C · 节点与 Skill 注册</text><text x="18" y="59" class="t small muted">注册表 → 映射 → 测试 → 启用</text>
+      <rect x="18" y="78" width="309" height="38" rx="8" class="row"/><text x="30" y="102" class="t small blue">skills.storyboard.generate_drafts</text>
+      <text x="20" y="144" class="t small">Skill 版本、输入输出 Schema、权限声明</text><text x="20" y="169" class="t small">映射 NodeDefinition 与 Validator</text><text x="20" y="194" class="t small">沙盒测试通过后才能启用</text>
+      <rect x="18" y="207" width="94" height="25" rx="6" fill="#172b1e"/><text x="39" y="225" class="t small green">测试通过</text>
+    </g>
+    <g transform="translate(1110 24)" filter="url(#shadow)">
+      <rect width="350" height="238" rx="15" class="panel"/><text x="18" y="34" class="t h3">D · Runner 集群</text><text x="18" y="59" class="t small muted">健康 → 队列 → 任务 → 运维操作</text>
+      <text x="20" y="94" class="t small green">● runner-01　在线　任务 3</text><text x="20" y="122" class="t small green">● runner-02　在线　任务 4</text><text x="20" y="150" class="t small orange">● runner-03　延迟　任务 2</text>
+      <text x="20" y="181" class="t small">查看能力、允许根目录、心跳与日志</text><text x="20" y="205" class="t small">排空 → 迁移任务 → 停用（需确认）</text>
+    </g>
+  </g>
+
+  <!-- Module cards row 2 -->
+  <g transform="translate(270 760)">
+    <g filter="url(#shadow)">
+      <rect width="345" height="228" rx="15" class="panel"/><text x="18" y="34" class="t h3">E · 资产规范</text><text x="18" y="59" class="t small muted">角色定义 → Schema → 去重与血缘</text>
+      <text x="20" y="98" class="t small">资产角色：脚本 / 角色 / 场景 / 分镜 / 视频</text><text x="20" y="126" class="t small">必填元数据、Hash、版本与引用关系</text><text x="20" y="154" class="t small">重复资产检查与跨工程使用分析</text><text x="20" y="182" class="t small purple">替换资产必须触发 STALE 影响计算</text>
+    </g>
+    <g transform="translate(370 0)" filter="url(#shadow)">
+      <rect width="345" height="228" rx="15" class="panel"/><text x="18" y="34" class="t h3">F · 权限与审批策略</text><text x="18" y="59" class="t small muted">角色 → 范围 → 规则 → 生效</text>
+      <text x="20" y="98" class="t small">管理员 / 制作人 / 审批人 / 观察者</text><text x="20" y="126" class="t small">工程范围、写入根目录、危险命令等级</text><text x="20" y="154" class="t small">工具审批与业务审批分别配置</text><text x="20" y="182" class="t small orange">策略变更需二次确认并生成收据</text>
+    </g>
+    <g transform="translate(740 0)" filter="url(#shadow)">
+      <rect width="345" height="228" rx="15" class="panel"/><text x="18" y="34" class="t h3">G · 运行与问题运营</text><text x="18" y="59" class="t small muted">跨工程检索 → 证据 → 处置</text>
+      <text x="20" y="98" class="t small">RunID / Problem ID / Node / Runner 联合检索</text><text x="20" y="126" class="t small">查看事件时间线、日志、输入输出快照</text><text x="20" y="154" class="t small">暂停、迁移、重试必须创建新 NodeRun</text><text x="20" y="182" class="t small red">禁止后台直接编辑 PASS / FAIL</text>
+    </g>
+    <g transform="translate(1110 0)" filter="url(#shadow)">
+      <rect width="350" height="228" rx="15" class="panel"/><text x="18" y="34" class="t h3">H · 审计与收据</text><text x="18" y="59" class="t small muted">事件 → 筛选 → 证据链 → 导出</text>
+      <text x="20" y="98" class="t small">操作者、动作、对象、前后 Hash、时间</text><text x="20" y="126" class="t small">工具审批 / 业务审批 / 发布 / 迁移收据</text><text x="20" y="154" class="t small">按工程或时间导出审计包</text><text x="20" y="182" class="t small green">Append-only，不允许静默删除</text>
+    </g>
+  </g>
+
+  <!-- governance flows -->
+  <g transform="translate(270 1030)">
+    <text x="0" y="0" class="t h2">关键管理闭环</text>
+    <g transform="translate(0 25)">
+      <rect width="1460" height="176" rx="15" class="screen"/>
+      <g transform="translate(20 24)"><rect width="245" height="50" rx="9" class="panel"/><text x="38" y="31" class="t body">工作流 / Skill 变更</text><path d="M250 25H302" class="line"/><rect x="310" width="245" height="50" rx="9" class="panel"/><text x="345" y="31" class="t body">Schema 与沙盒测试</text><path d="M560 25H612" class="line"/><rect x="620" width="245" height="50" rx="9" class="panel"/><text x="662" y="31" class="t body">项目影响分析</text><path d="M870 25H922" class="line"/><rect x="930" width="245" height="50" rx="9" class="panel"/><text x="968" y="31" class="t body">发布新版本 / 迁移</text><path d="M1180 25H1232" class="line"/><rect x="1240" width="180" height="50" rx="9" fill="#172b1e" stroke="#3c7d50"/><text x="1270" y="31" class="t body green">审计收据</text>
+      <rect y="88" width="245" height="50" rx="9" class="panel"/><text x="50" y="119" class="t body">Runner 异常 / 策略变更</text><path d="M250 113H302" class="line"/><rect x="310" y="88" width="245" height="50" rx="9" class="panel"/><text x="350" y="119" class="t body">暂停接单 / 二次确认</text><path d="M560 113H612" class="line"/><rect x="620" y="88" width="245" height="50" rx="9" class="panel"/><text x="660" y="119" class="t body">迁移任务 / 更新策略</text><path d="M870 113H922" class="line"/><rect x="930" y="88" width="245" height="50" rx="9" class="panel"/><text x="971" y="119" class="t body">通知受影响工程</text><path d="M1180 113H1232" class="line"/><rect x="1240" y="88" width="180" height="50" rx="9" fill="#172b1e" stroke="#3c7d50"/><text x="1270" y="119" class="t body green">审计收据</text></g>
+    </g>
+  </g>
+
+  <!-- relationship callouts -->
+  <path d="M815 717V744" class="dash"/><path d="M1185 717V744" class="dash"/>
+  <text x="270" y="1288" class="t small muted">制作端负责生产；管理端负责配置、治理、运营和审计。管理端可以暂停、迁移、发布和授权，但不能绕过 Validator 手动修改业务结果。</text>
+</svg>

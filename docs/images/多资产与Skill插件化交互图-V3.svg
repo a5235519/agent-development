@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1220" viewBox="0 0 1800 1220">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#090d13"/><stop offset="1" stop-color="#131a25"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#242a34"/><stop offset="1" stop-color="#191e27"/></linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3479ff"/><stop offset="1" stop-color="#655dff"/></linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#354052" opacity=".45"/></pattern>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity=".34"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7184a8"/></marker>
+    <style>
+      .t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;fill:#eef2f8}.m{fill:#929cac}.b{fill:#78a2ff}.g{fill:#72d989}.o{fill:#ffbd58}.r{fill:#ff716b}.p{fill:#ae91ff}
+      .h1{font-size:28px;font-weight:700}.h2{font-size:21px;font-weight:650}.h3{font-size:17px;font-weight:650}.body{font-size:15px}.small{font-size:13px}
+      .panel{fill:url(#card);stroke:#3d4859;stroke-width:1.4}.node{fill:#202630;stroke:#4b5668;stroke-width:1.4}.sel{stroke:#4f7dff;stroke-width:2.2}.line{fill:none;stroke:#7184a8;stroke-width:2;marker-end:url(#arrow)}.dash{fill:none;stroke:#59677b;stroke-width:1.6;stroke-dasharray:7 6;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1800" height="1220" fill="url(#bg)"/><rect width="1800" height="1220" fill="url(#dots)"/>
+  <rect width="1800" height="68" fill="#080b10" stroke="#252d39"/><circle cx="34" cy="34" r="12" fill="#4f7cff"/><text x="58" y="42" class="t h2">柠萌旅行记 Agent 工作台 · 多资产与 Skill 插件化 V3</text><text x="1370" y="41" class="t small m">AssetCollection · PluginRegistry · SkillAdapter</text>
+
+  <!-- production -->
+  <g transform="translate(40 92)">
+    <rect width="1720" height="505" rx="18" fill="#0f141c" stroke="#3b4657"/>
+    <rect width="1720" height="48" rx="18" fill="#0b0f15"/><text x="20" y="31" class="t h3 b">制作端：多资产添加、绑定与预览</text><text x="335" y="30" class="t small m">集合只占一个节点和一条类型化连接</text>
+    <!-- add panel -->
+    <g transform="translate(20 70)" filter="url(#shadow)">
+      <rect width="360" height="405" rx="13" class="panel"/><text x="18" y="31" class="t h3">添加多资产</text>
+      <rect x="16" y="48" width="328" height="64" rx="9" fill="#17202c" stroke="#536178" stroke-dasharray="6 5"/><text x="82" y="76" class="t body">拖入多个文件或文件夹</text><text x="108" y="98" class="t small b">选择本机文件　工程资产　节点产物</text>
+      <text x="18" y="141" class="t small m">待添加队列 · 12 项</text>
+      <g transform="translate(16 153)"><rect width="328" height="52" rx="8" class="node"/><rect x="8" y="7" width="48" height="38" rx="5" fill="#3a4657"/><text x="68" y="22" class="t small">角色参考_01.png</text><text x="68" y="41" class="t small g">READY · 2048×2048</text><text x="284" y="31" class="t small">✓</text>
+      <rect y="60" width="328" height="52" rx="8" class="node"/><rect x="8" y="67" width="48" height="38" rx="5" fill="#3a4657"/><text x="68" y="82" class="t small">京都街景_02.png</text><text x="68" y="101" class="t small o">DUPLICATE · 引用既有</text><text x="284" y="91" class="t small">↗</text>
+      <rect y="120" width="328" height="52" rx="8" class="node"/><rect x="8" y="127" width="48" height="38" rx="5" fill="#3a4657"/><text x="68" y="142" class="t small">服装参考_03.webp</text><text x="68" y="161" class="t small g">READY · 1600×2000</text><text x="284" y="151" class="t small">✓</text></g>
+      <rect x="16" y="340" width="158" height="38" rx="8" class="node"/><text x="43" y="365" class="t small">批量设置角色</text><rect x="186" y="340" width="158" height="38" rx="8" fill="url(#blue)"/><text x="226" y="365" class="t small">添加 11 项</text>
+      <text x="18" y="397" class="t small o">1 个重复项将引用既有资产</text>
+    </g>
+    <!-- collection node -->
+    <g transform="translate(420 105)" filter="url(#shadow)">
+      <rect width="410" height="300" rx="13" class="node sel"/><text x="16" y="30" class="t h3">角色与场景参考</text><text x="330" y="29" class="t small g">12 / 12</text>
+      <text x="16" y="56" class="t small m">AssetCollection · v3 · Hash 7e2d6f</text>
+      <g fill="#3b4758" stroke="#5c6879"><rect x="16" y="72" width="112" height="82" rx="7"/><rect x="144" y="72" width="112" height="82" rx="7"/><rect x="272" y="72" width="112" height="82" rx="7"/><rect x="16" y="168" width="112" height="82" rx="7"/><rect x="144" y="168" width="112" height="82" rx="7"/><rect x="272" y="168" width="112" height="82" rx="7"/></g>
+      <text x="45" y="118" class="t small m">角色 4</text><text x="173" y="118" class="t small m">服装 3</text><text x="301" y="118" class="t small m">街景 3</text><text x="45" y="214" class="t small m">室内 2</text><text x="173" y="214" class="t small m">已批准</text><text x="301" y="214" class="t small m">无异常</text>
+      <rect x="16" y="261" width="112" height="27" rx="6" fill="#29313e"/><text x="39" y="280" class="t small">添加资产</text><rect x="140" y="261" width="112" height="27" rx="6" fill="#29313e"/><text x="163" y="280" class="t small">打开集合</text><rect x="264" y="261" width="120" height="27" rx="6" fill="#29313e"/><text x="287" y="280" class="t small">仅看异常</text>
+      <circle cx="410" cy="150" r="7" fill="#66d2c1"/>
+    </g>
+    <!-- plugin node -->
+    <g transform="translate(875 105)" filter="url(#shadow)">
+      <rect width="300" height="300" rx="13" class="node"/><text x="16" y="30" class="t h3">分镜草图生成</text><text x="220" y="29" class="t small b">PLUGIN</text><text x="16" y="58" class="t small m">storyboard-draft v1.4</text>
+      <text x="16" y="91" class="t small">输入</text><rect x="16" y="104" width="268" height="38" rx="7" fill="#171d26"/><text x="28" y="128" class="t small">参考图片集合　12 项　✓</text><rect x="16" y="150" width="268" height="38" rx="7" fill="#171d26"/><text x="28" y="174" class="t small">正式脚本　　　 v1.2　✓</text><rect x="16" y="196" width="268" height="38" rx="7" fill="#171d26"/><text x="28" y="220" class="t small">镜号范围　　　 S01–S19</text>
+      <rect x="16" y="251" width="268" height="36" rx="8" fill="url(#blue)"/><text x="104" y="275" class="t body">执行预检</text><circle cx="0" cy="150" r="7" fill="#66d2c1"/><circle cx="300" cy="150" r="7" fill="#ae91ff"/>
+    </g>
+    <!-- output collection -->
+    <g transform="translate(1220 85)" filter="url(#shadow)">
+      <rect width="470" height="340" rx="13" class="node"/><text x="16" y="30" class="t h3">S01–S19 草图产物</text><text x="386" y="29" class="t small o">18 / 19</text>
+      <g fill="#3b4758" stroke="#5c6879">
+        <rect x="16" y="50" width="78" height="53" rx="5"/><rect x="104" y="50" width="78" height="53" rx="5"/><rect x="192" y="50" width="78" height="53" rx="5"/><rect x="280" y="50" width="78" height="53" rx="5"/><rect x="368" y="50" width="78" height="53" rx="5"/>
+        <rect x="16" y="120" width="78" height="53" rx="5"/><rect x="104" y="120" width="78" height="53" rx="5" stroke="#4f7dff" stroke-width="2"/><rect x="192" y="120" width="78" height="53" rx="5" fill="#24191e" stroke="#ff716b" stroke-dasharray="6 4"/><rect x="280" y="120" width="78" height="53" rx="5"/><rect x="368" y="120" width="78" height="53" rx="5"/>
+        <rect x="16" y="190" width="78" height="53" rx="5"/><rect x="104" y="190" width="78" height="53" rx="5"/><rect x="192" y="190" width="78" height="53" rx="5"/><rect x="280" y="190" width="78" height="53" rx="5"/><rect x="368" y="190" width="78" height="53" rx="5"/>
+      </g>
+      <text x="40" y="82" class="t small m">S01</text><text x="128" y="82" class="t small m">S02</text><text x="216" y="82" class="t small m">S03</text><text x="304" y="82" class="t small m">S04</text><text x="392" y="82" class="t small m">S05</text><text x="40" y="152" class="t small m">S11</text><text x="128" y="152" class="t small b">S12</text><text x="209" y="152" class="t small r">缺失</text><text x="304" y="152" class="t small m">S14</text><text x="392" y="152" class="t small m">S15</text>
+      <rect x="16" y="269" width="138" height="34" rx="7" fill="#29313e"/><text x="48" y="292" class="t small">打开预览器</text><rect x="166" y="269" width="138" height="34" rx="7" fill="#29313e"/><text x="194" y="292" class="t small">仅重试失败项</text><rect x="316" y="269" width="130" height="34" rx="7" fill="#29313e"/><text x="350" y="292" class="t small">生成联系表</text><text x="16" y="326" class="t small o">PARTIAL · S13 ItemRun 失败</text><circle cx="0" cy="170" r="7" fill="#ae91ff"/>
+    </g>
+    <path d="M830 255H868" class="line"/><text x="829" y="236" class="t small m">AssetCollectionRef</text><path d="M1175 255H1213" class="line"/>
+  </g>
+
+  <!-- admin plugin -->
+  <g transform="translate(40 625)">
+    <rect width="1720" height="530" rx="18" fill="#0f141c" stroke="#3b4657"/>
+    <rect width="1720" height="48" rx="18" fill="#0b0f15"/><text x="20" y="31" class="t h3 p">管理端：插件配置与 Skill 转换</text><text x="318" y="30" class="t small m">分析生成草稿，人工确认，沙盒测试后才能发布</text>
+    <!-- skill analysis -->
+    <g transform="translate(20 72)" filter="url(#shadow)">
+      <rect width="400" height="420" rx="13" class="panel"/><text x="18" y="31" class="t h3">Skill 添加与分析</text>
+      <rect x="16" y="48" width="368" height="40" rx="8" fill="#171d26" stroke="#3d4859"/><text x="29" y="73" class="t small b">designing-travel-comedy-series</text>
+      <text x="18" y="119" class="t small m">来源：已安装 Skill · commit 83fa21</text>
+      <rect x="16" y="137" width="368" height="54" rx="8" class="node"/><text x="28" y="160" class="t small">Operations　3 个</text><text x="260" y="160" class="t small g">明确</text><text x="28" y="181" class="t small m">generate_script / storyboard / video</text>
+      <rect x="16" y="201" width="368" height="54" rx="8" class="node"/><text x="28" y="224" class="t small">输入输出　8 / 5</text><text x="260" y="224" class="t small o">2 项待确认</text><text x="28" y="245" class="t small m">非结构化输出需要 Artifact 映射</text>
+      <rect x="16" y="265" width="368" height="54" rx="8" class="node"/><text x="28" y="288" class="t small">权限与副作用</text><text x="260" y="288" class="t small o">中风险</text><text x="28" y="309" class="t small m">文件写入 · 图像生成 · Codex 工具调用</text>
+      <rect x="16" y="329" width="175" height="38" rx="8" class="node"/><text x="47" y="354" class="t small">查看分析报告</text><rect x="203" y="329" width="181" height="38" rx="8" fill="url(#blue)"/><text x="235" y="354" class="t small">生成适配器草稿</text>
+      <text x="18" y="398" class="t small o">转换等级 B · 需要人工映射</text>
+    </g>
+    <!-- adapter wizard -->
+    <g transform="translate(450 72)" filter="url(#shadow)">
+      <rect width="680" height="420" rx="13" class="panel"/><text x="18" y="31" class="t h3">插件编辑器 · storyboard-draft v1.4 DRAFT</text>
+      <rect x="16" y="48" width="648" height="38" rx="8" fill="#171d26" stroke="#3d4859"/><text x="29" y="73" class="t small m">基础信息　</text><text x="118" y="73" class="t small b">输入　</text><text x="184" y="73" class="t small">输出　</text><text x="250" y="73" class="t small">节点 UI　</text><text x="342" y="73" class="t small">执行适配　</text><text x="446" y="73" class="t small">权限安全　</text><text x="550" y="73" class="t small">测试发布</text>
+      <g transform="translate(16 103)">
+        <rect width="190" height="270" rx="9" fill="#171d26" stroke="#3d4859"/><text x="14" y="27" class="t small m">输入字段</text><rect x="10" y="42" width="170" height="42" rx="7" fill="#20345d"/><text x="22" y="67" class="t small b">reference_images</text><rect x="10" y="92" width="170" height="42" rx="7" class="node"/><text x="22" y="117" class="t small">script</text><rect x="10" y="142" width="170" height="42" rx="7" class="node"/><text x="22" y="167" class="t small">shot_range</text><rect x="10" y="192" width="170" height="42" rx="7" class="node"/><text x="22" y="217" class="t small">style_config</text><text x="30" y="260" class="t small b">＋ 添加字段</text>
+        <rect x="210" width="260" height="270" rx="9" fill="#171d26" stroke="#3d4859"/><text x="224" y="27" class="t h3">reference_images</text><text x="224" y="58" class="t small">类型　images / AssetCollection</text><text x="224" y="87" class="t small">必填　是</text><text x="224" y="116" class="t small">数量　1–20</text><text x="224" y="145" class="t small">角色　character / location / costume</text><text x="224" y="174" class="t small">格式　PNG / JPG / WEBP</text><text x="224" y="203" class="t small">端口　artifact.image_collection</text><text x="224" y="232" class="t small">节点内显示　缩略图 6 张</text>
+        <rect x="480" width="168" height="270" rx="9" class="node sel"/><text x="494" y="27" class="t small b">节点实时预览</text><text x="494" y="57" class="t small">参考图集合</text><g fill="#3b4758"><rect x="494" y="72" width="61" height="46" rx="5"/><rect x="565" y="72" width="61" height="46" rx="5"/><rect x="494" y="128" width="61" height="46" rx="5"/><rect x="565" y="128" width="61" height="46" rx="5"/></g><text x="494" y="203" class="t small m">12 项 · 1 个端口</text><rect x="494" y="218" width="132" height="34" rx="7" fill="url(#blue)"/><text x="532" y="241" class="t small">执行预检</text>
+      </g>
+      <rect x="16" y="386" width="184" height="26" rx="6" fill="#2a2437"/><text x="44" y="404" class="t small p">Schema 校验通过</text><rect x="480" y="382" width="184" height="30" rx="7" fill="#29313e"/><text x="524" y="403" class="t small">保存草稿</text>
+    </g>
+    <!-- test publish -->
+    <g transform="translate(1160 72)" filter="url(#shadow)">
+      <rect width="530" height="420" rx="13" class="panel"/><text x="18" y="31" class="t h3">沙盒测试与发布</text>
+      <g transform="translate(18 54)">
+        <rect width="494" height="50" rx="8" class="node"/><text x="16" y="22" class="t small">1　固定 Skill 来源版本</text><text x="410" y="30" class="t small g">PASS</text>
+        <rect y="60" width="494" height="50" rx="8" class="node"/><text x="16" y="82" class="t small">2　输入输出 Schema 校验</text><text x="410" y="90" class="t small g">PASS</text>
+        <rect y="120" width="494" height="50" rx="8" class="node"/><text x="16" y="142" class="t small">3　权限与写入路径检查</text><text x="410" y="150" class="t small g">PASS</text>
+        <rect y="180" width="494" height="50" rx="8" class="node"/><text x="16" y="202" class="t small">4　测试夹具 NodeRun</text><text x="410" y="210" class="t small o">2/3</text>
+        <rect y="240" width="494" height="50" rx="8" class="node"/><text x="16" y="262" class="t small">5　Workflow / 工程影响分析</text><text x="410" y="270" class="t small m">待运行</text>
+        <rect y="310" width="238" height="40" rx="8" class="node"/><text x="76" y="336" class="t small">运行全部测试</text><rect x="256" y="310" width="238" height="40" rx="8" fill="#26303c" opacity=".55"/><text x="325" y="336" class="t small m">发布插件版本</text>
+        <text x="0" y="377" class="t small r">测试未完成，发布按钮禁用</text>
+      </g>
+    </g>
+    <path d="M420 282H443" class="line"/><path d="M1130 282H1153" class="line"/>
+  </g>
+  <text x="40" y="1192" class="t small m">Skill → 分析报告 → PluginAdapter 草稿 → Schema / 节点 UI → 沙盒测试 → 发布 → 绑定 NodeDefinition → Workflow 新版本 → 制作端使用。</text>
+</svg>

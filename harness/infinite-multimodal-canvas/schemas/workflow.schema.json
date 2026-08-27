@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-workbench.local/schemas/workflow.schema.json",
+  "title": "Infinite Canvas Workflow",
+  "type": "object",
+  "required": ["id", "title", "kind", "nodes", "edges"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["text-to-image", "image-to-image", "text-to-video", "image-to-video", "image-text-plugin"] },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "definitionId", "position", "config"],
+        "properties": {
+          "id": { "type": "string" },
+          "definitionId": { "type": "string" },
+          "position": {
+            "type": "object",
+            "required": ["x", "y"],
+            "properties": { "x": { "type": "number" }, "y": { "type": "number" } },
+            "additionalProperties": false
+          },
+          "config": { "type": "object" },
+          "disabled": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "sourcePort", "target", "targetPort"],
+        "properties": {
+          "id": { "type": "string" },
+          "source": { "type": "string" },
+          "sourcePort": { "type": "string" },
+          "target": { "type": "string" },
+          "targetPort": { "type": "string" },
+          "disabled": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

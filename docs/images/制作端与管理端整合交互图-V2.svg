@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1240" viewBox="0 0 1800 1240">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#090d13"/><stop offset="1" stop-color="#131a25"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#242a34"/><stop offset="1" stop-color="#191e27"/></linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3479ff"/><stop offset="1" stop-color="#655dff"/></linearGradient>
+    <pattern id="dots" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#364255" opacity=".45"/></pattern>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity=".34"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7184a8"/></marker>
+    <style>
+      .t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;fill:#eef2f8}.m{fill:#929cac}.b{fill:#78a2ff}.g{fill:#72d989}.o{fill:#ffbd58}.r{fill:#ff716b}.p{fill:#ae91ff}
+      .h1{font-size:29px;font-weight:700}.h2{font-size:21px;font-weight:650}.h3{font-size:17px;font-weight:650}.body{font-size:15px}.small{font-size:13px}
+      .panel{fill:url(#card);stroke:#3d4859;stroke-width:1.4}.node{fill:#202630;stroke:#4b5668;stroke-width:1.4}.sel{stroke:#4f7dff;stroke-width:2.2}.line{fill:none;stroke:#7184a8;stroke-width:2;marker-end:url(#arrow)}.ref{fill:none;stroke:#58657a;stroke-width:1.6;stroke-dasharray:7 6;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1800" height="1240" fill="url(#bg)"/><rect width="1800" height="1240" fill="url(#dots)"/>
+
+  <!-- title -->
+  <rect width="1800" height="70" fill="#080b10" stroke="#252d39"/>
+  <circle cx="34" cy="35" r="12" fill="#4f7cff"/><text x="58" y="43" class="t h2">柠萌旅行记 Agent 工作台 · 制作端 × 管理端整合交互 V2</text>
+  <rect x="1400" y="17" width="170" height="38" rx="9" fill="#20345d"/><text x="1435" y="42" class="t body b">制作工作区</text><rect x="1580" y="17" width="180" height="38" rx="9" fill="#181e27" stroke="#3b4657"/><text x="1616" y="42" class="t body">管理控制台</text>
+
+  <!-- production shell -->
+  <g transform="translate(40 95)">
+    <rect width="1720" height="650" rx="18" fill="#0f141c" stroke="#3b4657"/>
+    <rect width="1720" height="48" rx="18" fill="#0b0f15"/><text x="20" y="31" class="t h3 b">制作端：阶段化节点执行</text><text x="305" y="30" class="t small m">导航仅保留　工程 / 工作台 / 资产 / 交付</text>
+    <!-- stage rail -->
+    <g transform="translate(20 70)">
+      <rect width="170" height="550" rx="13" class="panel"/><text x="18" y="30" class="t small m">EP01 京都 · 12/23</text>
+      <text x="22" y="77" class="t small g">01 方向与脚本　PASS</text><text x="22" y="119" class="t small g">02 清单与 R0　 PASS</text>
+      <rect x="10" y="140" width="150" height="52" rx="9" fill="#20345d"/><text x="22" y="171" class="t body b">03 分镜准备</text>
+      <text x="22" y="231" class="t small p">04 分镜定稿　锁定</text><text x="22" y="273" class="t small p">05 视频与交付　锁定</text><text x="22" y="315" class="t small p">06 归档与验收　锁定</text>
+      <line x1="16" y1="350" x2="154" y2="350" stroke="#3a4555"/><text x="20" y="384" class="t small m">画布控制</text><text x="20" y="418" class="t small">⌕ 搜索　⊡ 适应</text><text x="20" y="450" class="t small">−　100%　＋</text><text x="20" y="482" class="t small">▣ MiniMap</text>
+      <rect x="14" y="505" width="142" height="30" rx="7" fill="#17251d"/><text x="34" y="526" class="t small g">Runner 在线</text>
+    </g>
+    <!-- canvas -->
+    <g transform="translate(215 70)">
+      <rect width="1030" height="550" rx="13" fill="#111720" stroke="#354052"/>
+      <text x="18" y="30" class="t h3">F3 · 分镜准备</text><text x="820" y="29" class="t small o">推荐：补齐 S13</text><text x="930" y="29" class="t small m">合法下一步 ›</text>
+      <!-- rich nodes -->
+      <g transform="translate(25 60)">
+        <rect width="205" height="150" rx="11" class="node" stroke="#3e7d51"/><text x="14" y="25" class="t h3">正式脚本</text><text x="151" y="24" class="t small g">PASS</text><text x="14" y="52" class="t small m">v1.2 · 19 场 · 8,742 字</text><text x="14" y="79" class="t small">京都的清晨，薄雾轻轻散开…</text><text x="14" y="103" class="t small">小柠檬背着相机走进石板路…</text><rect x="12" y="118" width="82" height="24" rx="6" fill="#29313e"/><text x="29" y="135" class="t small">查看全文</text><circle cx="205" cy="75" r="6" fill="#72d989"/>
+        <rect x="255" width="235" height="150" rx="11" class="node" stroke="#3e7d51"/><text x="269" y="25" class="t h3">R0 资产包</text><text x="439" y="24" class="t small g">7/7</text>
+        <g fill="#384354"><rect x="269" y="42" width="45" height="58" rx="5"/><rect x="321" y="42" width="45" height="58" rx="5"/><rect x="373" y="42" width="45" height="58" rx="5"/><rect x="425" y="42" width="45" height="58" rx="5"/></g><text x="272" y="119" class="t small m">角色　服装　街景　室内</text><circle cx="490" cy="75" r="6" fill="#72d989"/>
+        <rect x="535" width="195" height="150" rx="11" class="node sel"/><text x="549" y="25" class="t h3">生成分镜脚本</text><text x="549" y="55" class="t small b">Skill：storyboard.generate</text><text x="549" y="82" class="t small m">输入 4/4 · 最近 02:14</text><text x="549" y="106" class="t small">状态 READY</text><rect x="548" y="116" width="166" height="25" rx="6" fill="url(#blue)"/><text x="600" y="134" class="t small">执行预检</text><circle cx="730" cy="75" r="6" fill="#4f7cff"/>
+        <rect x="775" width="205" height="150" rx="11" class="node" stroke="#a34c47"/><text x="789" y="25" class="t h3">镜号覆盖校验</text><text x="935" y="24" class="t small r">FAIL</text><text x="789" y="57" class="t small">覆盖 18 / 19</text><text x="789" y="84" class="t small r">缺失：S13</text><text x="789" y="111" class="t small m">已创建 Problem #0013</text>
+        <path d="M211 75H249M496 75H529M736 75H769" class="ref"/>
+
+        <rect x="180" y="205" width="590" height="255" rx="12" class="node sel"/><text x="196" y="232" class="t h3">S01–S19 分镜草图</text><text x="700" y="231" class="t small o">18 / 19</text>
+        <g fill="#384354" stroke="#566174">
+          <rect x="196" y="250" width="94" height="56" rx="5"/><rect x="300" y="250" width="94" height="56" rx="5"/><rect x="404" y="250" width="94" height="56" rx="5"/><rect x="508" y="250" width="94" height="56" rx="5"/><rect x="612" y="250" width="94" height="56" rx="5"/>
+          <rect x="196" y="325" width="94" height="56" rx="5"/><rect x="300" y="325" width="94" height="56" rx="5" stroke="#4f7cff" stroke-width="2"/><rect x="404" y="325" width="94" height="56" rx="5" fill="#24191e" stroke="#ff716b" stroke-dasharray="6 4"/><rect x="508" y="325" width="94" height="56" rx="5"/><rect x="612" y="325" width="94" height="56" rx="5"/>
+        </g>
+        <text x="229" y="285" class="t small m">S01</text><text x="333" y="285" class="t small m">S02</text><text x="437" y="285" class="t small m">S03</text><text x="541" y="285" class="t small m">S04</text><text x="645" y="285" class="t small m">S05</text>
+        <text x="229" y="360" class="t small m">S11</text><text x="333" y="360" class="t small b">S12</text><text x="432" y="360" class="t small r">S13 缺失</text><text x="541" y="360" class="t small m">S14</text><text x="645" y="360" class="t small m">S15</text>
+        <rect x="196" y="404" width="98" height="28" rx="6" fill="#29313e"/><text x="218" y="423" class="t small">放大查看</text><rect x="304" y="404" width="98" height="28" rx="6" fill="#29313e"/><text x="330" y="423" class="t small">仅异常</text><text x="545" y="423" class="t small m">批量任务聚合，不进入第三层永久画布</text>
+      </g>
+    </g>
+    <!-- inspector -->
+    <g transform="translate(1270 70)">
+      <rect width="430" height="550" rx="13" class="panel"/><text x="18" y="31" class="t h3">统一上下文检查器 · S12</text>
+      <rect x="14" y="50" width="402" height="38" rx="8" fill="#171d26" stroke="#3d4859"/><rect x="14" y="50" width="98" height="38" rx="8" fill="#20345d"/><text x="44" y="75" class="t small b">内容</text><text x="145" y="75" class="t small m">执行</text><text x="240" y="75" class="t small m">问题</text><text x="324" y="75" class="t small m">版本与血缘</text>
+      <rect x="18" y="105" width="394" height="205" rx="10" fill="#343f4e"/><text x="145" y="211" class="t h2 m">S12 图片大图</text>
+      <text x="20" y="339" class="t small">S12 · 1920×1080 · JPG · v1 · a8d7e3</text><text x="20" y="370" class="t h3">关联生成脚本</text><text x="20" y="398" class="t small b">景别：全景　运镜：固定　时长：3.0s</text><text x="20" y="425" class="t small m">画面：柠檬走向八坂神社，停下脚步抬头。</text><text x="20" y="452" class="t small m">素材引用：角色 v4、京都街景 v2</text>
+      <rect x="18" y="477" width="188" height="38" rx="8" fill="url(#blue)"/><text x="67" y="502" class="t body">查看生成脚本</text><rect x="218" y="477" width="194" height="38" rx="8" fill="#242b36" stroke="#465164"/><text x="265" y="502" class="t body">查看输入快照</text>
+      <text x="20" y="536" class="t small m">同一时刻只显示一个检查器，不叠加侧栏</text>
+    </g>
+  </g>
+
+  <!-- truth layer -->
+  <g transform="translate(40 775)">
+    <rect width="1720" height="90" rx="14" fill="#151c26" stroke="#3d4859"/>
+    <text x="20" y="31" class="t h3">统一运行真相层</text>
+    <g transform="translate(205 18)"><rect width="195" height="52" rx="9" class="node"/><text x="237" y="49" class="t small">WorkflowVersion</text><rect x="420" width="160" height="52" rx="9" class="node"/><text x="456" y="49" class="t small">NodeInstance</text><rect x="600" width="140" height="52" rx="9" class="node"/><text x="638" y="49" class="t small">NodeRun</text><rect x="760" width="140" height="52" rx="9" class="node"/><text x="796" y="49" class="t small">Artifact</text><rect x="920" width="140" height="52" rx="9" class="node"/><text x="958" y="49" class="t small">Problem</text><rect x="1080" width="140" height="52" rx="9" class="node"/><text x="1116" y="49" class="t small">Approval</text><rect x="1240" width="140" height="52" rx="9" class="node"/><text x="1282" y="49" class="t small">Receipt</text></g>
+  </g>
+
+  <!-- admin -->
+  <g transform="translate(40 895)">
+    <rect width="1720" height="285" rx="18" fill="#0f141c" stroke="#3b4657"/>
+    <rect width="1720" height="48" rx="18" fill="#0b0f15"/><text x="20" y="31" class="t h3 p">管理端：配置、治理、运营与审计</text><text x="335" y="30" class="t small m">只有“工作流模板编辑器”使用节点画布，其他模块使用标准后台</text>
+    <g transform="translate(22 72)">
+      <rect width="220" height="175" rx="12" class="panel"/><text x="16" y="30" class="t h3">管理总览</text><text x="16" y="61" class="t small">工程 / 运行 / 阻塞</text><text x="16" y="88" class="t small">审批 / STALE / Runner</text><rect x="16" y="112" width="188" height="38" rx="8" fill="#20345d"/><text x="55" y="137" class="t small b">进入待处理项</text>
+      <rect x="240" width="280" height="175" rx="12" class="panel sel"/><text x="256" y="30" class="t h3">Workflow 模板编辑器</text><text x="256" y="61" class="t small">Frame / NodeDefinition / Gate</text><text x="256" y="88" class="t small">草稿 → 校验 → 测试 → 影响分析</text><text x="256" y="115" class="t small o">发布新版本，不覆盖旧版本</text><rect x="256" y="132" width="246" height="28" rx="7" fill="url(#blue)"/><text x="329" y="152" class="t small">查看发布流程</text>
+      <rect x="540" width="200" height="175" rx="12" class="panel"/><text x="556" y="30" class="t h3">节点与 Skill</text><text x="556" y="61" class="t small">注册 / Schema</text><text x="556" y="88" class="t small">权限声明 / 沙盒测试</text><text x="556" y="115" class="t small">引用与影响分析</text>
+      <rect x="760" width="200" height="175" rx="12" class="panel"/><text x="776" y="30" class="t h3">Runner 集群</text><text x="776" y="61" class="t small">心跳 / 能力 / 队列</text><text x="776" y="88" class="t small">排空 / 迁移 / 停用</text><text x="776" y="115" class="t small r">不能伪造成功结果</text>
+      <rect x="980" width="210" height="175" rx="12" class="panel"/><text x="996" y="30" class="t h3">资产规范</text><text x="996" y="61" class="t small">角色 / Schema / Hash</text><text x="996" y="88" class="t small">去重 / 血缘 / STALE</text><text x="996" y="115" class="t small">跨工程引用分析</text>
+      <rect x="1210" width="220" height="175" rx="12" class="panel"/><text x="1226" y="30" class="t h3">权限与审批</text><text x="1226" y="61" class="t small">RBAC / 工程范围</text><text x="1226" y="88" class="t small">工具审批 / 业务审批</text><text x="1226" y="115" class="t small o">策略版本进入 Preflight</text>
+      <rect x="1450" width="226" height="175" rx="12" class="panel"/><text x="1466" y="30" class="t h3">运行、问题与审计</text><text x="1466" y="61" class="t small">跨工程查询与证据</text><text x="1466" y="88" class="t small">发布 / 迁移 / 审批收据</text><text x="1466" y="115" class="t small g">Append-only</text>
+    </g>
+  </g>
+
+  <!-- cross links -->
+  <path d="M430 895V872" class="line"/><path d="M690 895V872" class="line"/><path d="M910 895V872" class="line"/><path d="M1350 895V872" class="line"/><path d="M1600 895V872" class="line"/>
+  <text x="40" y="1215" class="t small m">管理端发布版本和策略 → 统一真相层 → 制作端在 Preflight 中读取；制作端运行、问题、审批和交付 → 统一真相层 → 管理端运营与审计。</text>
+</svg>

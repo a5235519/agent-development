@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1180" viewBox="0 0 1800 1180">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0e13"/><stop offset="1" stop-color="#111722"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#202631"/><stop offset="1" stop-color="#171c24"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f6bff"/><stop offset="1" stop-color="#635bff"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.1" fill="#344052" opacity=".55"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#7287ad"/>
+    </marker>
+    <style>
+      .t{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;fill:#eef2f8}
+      .muted{fill:#8e99aa}.dim{fill:#667184}.blueText{fill:#7ca1ff}.green{fill:#72d889}.orange{fill:#ffbd55}.red{fill:#ff7069}.purple{fill:#aa8cff}
+      .panel{fill:url(#panel);stroke:#3b4555;stroke-width:1.4}.screen{fill:#10151d;stroke:#465064;stroke-width:1.5}
+      .node{fill:#202631;stroke:#4b5668;stroke-width:1.4}.selected{stroke:#4f7cff;stroke-width:2.2}
+      .line{fill:none;stroke:#7287ad;stroke-width:2.2;marker-end:url(#arrow)}
+      .dash{fill:none;stroke:#596579;stroke-width:1.6;stroke-dasharray:7 7}
+      .h1{font-size:32px;font-weight:700}.h2{font-size:22px;font-weight:650}.h3{font-size:17px;font-weight:650}.body{font-size:15px}.small{font-size:13px}
+    </style>
+  </defs>
+
+  <rect width="1800" height="1180" fill="url(#bg)"/>
+  <rect width="1800" height="1180" fill="url(#dots)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1800" height="70" fill="#090c11" stroke="#222936"/>
+  <circle cx="36" cy="35" r="12" fill="#4f7cff"/><text x="60" y="43" class="t h2">柠萌旅行记 Agent 节点工作台 · 精简交互 V2</text>
+  <text x="1350" y="41" class="t body muted">设计原则：一处选择 · 一处查看 · 一处执行</text>
+
+  <!-- Three layer rule -->
+  <g transform="translate(70 96)">
+    <rect width="1660" height="96" rx="16" fill="#141a23" stroke="#354052"/>
+    <text x="30" y="34" class="t h3">三层交互模型</text>
+    <g transform="translate(230 18)"><rect width="360" height="60" rx="12" fill="#18263c" stroke="#4166aa"/><text x="22" y="26" class="t small blueText">L1 · 工程与阶段</text><text x="22" y="48" class="t body">选择当前要完成的工作</text></g>
+    <path d="M610 48H670" class="line"/>
+    <g transform="translate(690 18)"><rect width="360" height="60" rx="12" fill="#1b2430" stroke="#526076"/><text x="22" y="26" class="t small">L2 · 节点工作台</text><text x="22" y="48" class="t body">查看依赖、选择节点、触发运行</text></g>
+    <path d="M1070 48H1130" class="line"/>
+    <g transform="translate(1150 18)"><rect width="470" height="60" rx="12" fill="#242033" stroke="#69598f"/><text x="22" y="26" class="t small purple">L3 · 统一上下文抽屉</text><text x="22" y="48" class="t body">内容 / 执行 / 问题 / 版本，只显示当前节点</text></g>
+  </g>
+
+  <!-- Screen 1 -->
+  <g transform="translate(70 235)" filter="url(#shadow)">
+    <rect width="390" height="360" rx="18" class="screen"/>
+    <rect width="390" height="46" rx="18" fill="#0c1118"/><text x="20" y="30" class="t h3">01 · 工程入口</text>
+    <rect x="18" y="65" width="354" height="52" rx="10" fill="#1d2430" stroke="#3d485a"/><text x="34" y="88" class="t body">EP01 京都</text><text x="34" y="108" class="t small muted">分镜准备 · 12/23 · 3 个问题</text>
+    <rect x="18" y="128" width="354" height="52" rx="10" fill="#1d2430" stroke="#3d485a"/><text x="34" y="151" class="t body">EP02 大阪</text><text x="34" y="171" class="t small muted">已归档 · 23/23</text>
+    <rect x="18" y="198" width="170" height="42" rx="9" fill="url(#blue)"/><text x="57" y="225" class="t body">新建工程</text>
+    <rect x="202" y="198" width="170" height="42" rx="9" fill="#202631" stroke="#465064"/><text x="240" y="225" class="t body">导入工程</text>
+    <rect x="18" y="260" width="354" height="78" rx="10" fill="#151b24" stroke="#384253"/>
+    <text x="34" y="285" class="t small blueText">创建仅做三件事</text><text x="34" y="309" class="t small muted">建立 manifest · 绑定素材 · 执行 Preflight</text><text x="34" y="329" class="t small orange">不会自动触发 AI</text>
+  </g>
+
+  <!-- Screen 2 -->
+  <g transform="translate(520 235)" filter="url(#shadow)">
+    <rect width="560" height="360" rx="18" class="screen"/>
+    <rect width="560" height="46" rx="18" fill="#0c1118"/><text x="20" y="30" class="t h3">02 · 六阶段总览</text><text x="440" y="29" class="t small green">Runner 在线</text>
+    <g transform="translate(20 68)">
+      <rect width="245" height="78" rx="10" class="node" stroke="#3c7d50"/><text x="15" y="25" class="t body">01 方向与脚本</text><text x="182" y="25" class="t small green">PASS</text><text x="15" y="54" class="t small muted">100% · 问题 0</text>
+      <rect x="275" width="245" height="78" rx="10" class="node" stroke="#3c7d50"/><text x="290" y="25" class="t body">02 清单与 R0</text><text x="457" y="25" class="t small green">PASS</text><text x="290" y="54" class="t small muted">100% · 问题 0</text>
+      <rect y="94" width="245" height="78" rx="10" class="node selected"/><text x="15" y="119" class="t body">03 分镜准备</text><text x="171" y="119" class="t small blueText">进行中</text><text x="15" y="148" class="t small muted">47% · 问题 3</text>
+      <rect x="275" y="94" width="245" height="78" rx="10" class="node" opacity=".62"/><text x="290" y="119" class="t body">04 分镜定稿</text><text x="458" y="119" class="t small purple">锁定</text><text x="290" y="148" class="t small muted">等待上游 Gate</text>
+      <rect y="188" width="245" height="78" rx="10" class="node" opacity=".62"/><text x="15" y="213" class="t body">05 视频与交付</text><text x="183" y="213" class="t small purple">锁定</text><text x="15" y="242" class="t small muted">等待上游 Gate</text>
+      <rect x="275" y="188" width="245" height="78" rx="10" class="node" opacity=".62"/><text x="290" y="213" class="t body">06 归档与验收</text><text x="458" y="213" class="t small purple">锁定</text><text x="290" y="242" class="t small muted">等待上游 Gate</text>
+    </g>
+    <rect x="20" y="319" width="520" height="30" rx="8" fill="#18263c"/><text x="35" y="340" class="t small blueText">推荐：补齐 S13 草图</text><text x="400" y="340" class="t small muted">全部合法下一步 ›</text>
+  </g>
+
+  <!-- Screen 3 -->
+  <g transform="translate(1140 235)" filter="url(#shadow)">
+    <rect width="590" height="360" rx="18" class="screen"/>
+    <rect width="590" height="46" rx="18" fill="#0c1118"/><text x="20" y="30" class="t h3">03 · 节点工作台</text><text x="440" y="29" class="t small muted">F3 分镜准备</text>
+    <g transform="translate(18 68)">
+      <rect width="118" height="70" rx="9" class="node" stroke="#3c7d50"/><text x="12" y="24" class="t small">正式脚本</text><text x="12" y="49" class="t small green">PASS</text><circle cx="118" cy="35" r="5" fill="#72d889"/>
+      <rect x="150" width="118" height="70" rx="9" class="node" stroke="#3c7d50"/><text x="162" y="24" class="t small">R0 资产包</text><text x="162" y="49" class="t small green">7/7</text><circle cx="268" cy="35" r="5" fill="#72d889"/>
+      <rect x="300" width="118" height="70" rx="9" class="node selected"/><text x="312" y="24" class="t small">生成分镜</text><text x="312" y="49" class="t small blueText">RUN</text><circle cx="418" cy="35" r="5" fill="#4f7cff"/>
+      <rect x="450" width="105" height="70" rx="9" class="node" stroke="#a34c47"/><text x="462" y="24" class="t small">Validator</text><text x="462" y="49" class="t small red">FAIL</text>
+      <path d="M123 35H145M273 35H295M423 35H445" class="dash"/>
+      <rect x="55" y="105" width="440" height="148" rx="11" class="node selected"/>
+      <text x="70" y="130" class="t body">S01–S19 分镜草图</text><text x="430" y="130" class="t small orange">18/19</text>
+      <g fill="#344052" stroke="#596579">
+        <rect x="70" y="145" width="62" height="38" rx="4"/><rect x="140" y="145" width="62" height="38" rx="4"/><rect x="210" y="145" width="62" height="38" rx="4"/><rect x="280" y="145" width="62" height="38" rx="4"/><rect x="350" y="145" width="62" height="38" rx="4"/><rect x="420" y="145" width="62" height="38" rx="4"/>
+        <rect x="70" y="194" width="62" height="38" rx="4"/><rect x="140" y="194" width="62" height="38" rx="4"/><rect x="210" y="194" width="62" height="38" rx="4"/><rect x="280" y="194" width="62" height="38" rx="4" stroke="#ff7069" stroke-dasharray="5 4" fill="#251b20"/><rect x="350" y="194" width="62" height="38" rx="4"/><rect x="420" y="194" width="62" height="38" rx="4"/>
+      </g>
+      <text x="88" y="172" class="t small muted">S01</text><text x="158" y="172" class="t small muted">S02</text><text x="228" y="172" class="t small muted">S03</text><text x="298" y="172" class="t small muted">S04</text><text x="368" y="172" class="t small muted">S05</text><text x="438" y="172" class="t small muted">S06</text>
+      <text x="88" y="221" class="t small muted">S10</text><text x="158" y="221" class="t small muted">S11</text><text x="228" y="221" class="t small blueText">S12</text><text x="298" y="221" class="t small red">缺失</text><text x="368" y="221" class="t small muted">S14</text><text x="438" y="221" class="t small muted">S15</text>
+      <text x="70" y="278" class="t small muted">节点内预览 · 点击内容后只打开右侧统一抽屉</text>
+    </g>
+  </g>
+
+  <!-- arrows row one -->
+  <path d="M460 415H505" class="line"/><text x="467" y="397" class="t small muted">打开</text>
+  <path d="M1080 415H1125" class="line"/><text x="1086" y="397" class="t small muted">进入阶段</text>
+
+  <!-- Unified drawer -->
+  <g transform="translate(70 660)" filter="url(#shadow)">
+    <rect width="1035" height="425" rx="18" class="screen"/>
+    <rect width="1035" height="48" rx="18" fill="#0c1118"/><text x="20" y="31" class="t h3">04 · 统一上下文抽屉（唯一详情入口）</text><text x="880" y="30" class="t small muted">当前节点：S12</text>
+    <g transform="translate(22 68)">
+      <rect width="600" height="42" rx="9" fill="#151b24" stroke="#354052"/>
+      <rect width="145" height="42" rx="9" fill="#21345a"/><text x="40" y="27" class="t body blueText">内容</text>
+      <text x="190" y="27" class="t body muted">执行</text><text x="325" y="27" class="t body muted">问题</text><text x="455" y="27" class="t body muted">版本</text>
+      <rect y="58" width="350" height="214" rx="10" fill="#1c222d" stroke="#445064"/>
+      <rect x="16" y="74" width="318" height="142" rx="8" fill="#303a49"/><text x="135" y="148" class="t h2 muted">S12 大图预览</text>
+      <text x="16" y="242" class="t small">1920×1080 · JPG · v1 · Hash a8d7e3</text>
+      <rect x="370" y="58" width="230" height="214" rx="10" fill="#1c222d" stroke="#445064"/>
+      <text x="386" y="85" class="t h3">关联脚本 · S12</text><text x="386" y="116" class="t small blueText">景别：全景　运镜：固定</text><text x="386" y="143" class="t small muted">画面：柠檬走向八坂神社</text><text x="386" y="169" class="t small muted">动作：停下脚步，抬头</text><text x="386" y="195" class="t small muted">台词：无　时长：3.0s</text><text x="386" y="230" class="t small blueText">查看完整生成脚本 ›</text>
+      <rect y="288" width="600" height="58" rx="10" fill="#151b24" stroke="#354052"/><text x="16" y="312" class="t small muted">同一位置切换标签，不叠加多个侧栏</text><text x="16" y="335" class="t small">内容：图片/脚本　执行：预检/日志　问题：证据/修复　版本：Diff/血缘</text>
+      <g transform="translate(640 0)">
+        <rect width="350" height="346" rx="12" fill="#171d26" stroke="#536178"/>
+        <text x="18" y="30" class="t h3">固定交互规则</text>
+        <circle cx="24" cy="70" r="10" fill="#243d70"/><text x="20" y="75" class="t small">1</text><text x="46" y="75" class="t body">点击节点：选中，不立即执行</text>
+        <circle cx="24" cy="112" r="10" fill="#243d70"/><text x="20" y="117" class="t small">2</text><text x="46" y="117" class="t body">点击内容：打开“内容”标签</text>
+        <circle cx="24" cy="154" r="10" fill="#243d70"/><text x="20" y="159" class="t small">3</text><text x="46" y="159" class="t body">点击运行：先 Preflight</text>
+        <circle cx="24" cy="196" r="10" fill="#243d70"/><text x="20" y="201" class="t small">4</text><text x="46" y="201" class="t body">失败：自动切换“问题”标签</text>
+        <circle cx="24" cy="238" r="10" fill="#243d70"/><text x="20" y="243" class="t small">5</text><text x="46" y="243" class="t body">通过：只解锁合法下一步</text>
+        <rect x="18" y="276" width="314" height="50" rx="9" fill="#1d2c48" stroke="#3e65a8"/><text x="38" y="306" class="t body blueText">一个节点，同时只显示一个任务上下文</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Run loop -->
+  <g transform="translate(1160 660)" filter="url(#shadow)">
+    <rect width="570" height="425" rx="18" class="screen"/>
+    <rect width="570" height="48" rx="18" fill="#0c1118"/><text x="20" y="31" class="t h3">05 · 执行与闭环</text>
+    <g transform="translate(24 74)">
+      <rect width="145" height="70" rx="10" class="node selected"/><text x="20" y="28" class="t body">执行预检</text><text x="20" y="51" class="t small green">输入/路径/Skill</text>
+      <path d="M155 35H190" class="line"/>
+      <rect x="200" width="145" height="70" rx="10" class="node"/><text x="220" y="28" class="t body">NodeRun</text><text x="220" y="51" class="t small blueText">日志与进度</text>
+      <path d="M355 35H390" class="line"/>
+      <rect x="400" width="125" height="70" rx="10" class="node"/><text x="420" y="28" class="t body">Validator</text><text x="420" y="51" class="t small orange">结果分流</text>
+      <path d="M462 77V112H95V150" class="dash" marker-end="url(#arrow)"/>
+      <rect y="150" width="238" height="94" rx="10" fill="#261b20" stroke="#a34c47"/><text x="18" y="178" class="t body red">FAIL → 问题标签</text><text x="18" y="204" class="t small muted">查看证据 · 修复输入 · 新 NodeRun</text><text x="18" y="226" class="t small red">不可手动改 PASS</text>
+      <rect x="284" y="150" width="241" height="94" rx="10" fill="#17251d" stroke="#3c7d50"/><text x="302" y="178" class="t body green">PASS → 合法下一步</text><text x="302" y="204" class="t small muted">Gate 解锁 · 进入下一阶段</text><text x="302" y="226" class="t small green">保留 Run / Receipt / Hash</text>
+      <rect y="270" width="525" height="68" rx="10" fill="#151b24" stroke="#354052"/>
+      <text x="18" y="296" class="t small purple">最终阶段才出现“审批与交付”</text><text x="18" y="321" class="t small muted">业务审批通过 + Problems 0 + STALE 0 → 导出交付包</text>
+    </g>
+  </g>
+
+  <path d="M1105 870H1145" class="line"/>
+  <text x="70" y="1135" class="t body muted">全局导航仅保留：工程　/　工作台　/　资产　/　交付　　·　　运行与问题不再成为独立复杂页面，而是跟随节点进入统一抽屉。</text>
+</svg>

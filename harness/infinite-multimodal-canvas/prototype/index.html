@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>多模态无限画布 Harness</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./interactions.css" />
+  </head>
+  <body>
+    <div id="app" class="app">
+      <header class="topbar">
+        <button id="open-workspace" class="brand"><span class="brand-mark">H</span><span><b>多模态画布 Harness</b><small>INTERACTION V0.8 · STATE</small></span></button>
+        <div class="crumb"><span id="project-title">实验工程</span><i>/</i><b id="workflow-title">文生图</b><span id="version-badge">草稿</span><span id="save-state" class="save-state">已保存</span></div>
+        <div class="mode-switch" role="tablist" aria-label="工作模式">
+          <button data-mode="design" class="active">设计</button><button data-mode="run">运行</button><button data-mode="review">审阅</button>
+        </div>
+        <div class="top-actions"><button id="undo" title="撤销 ⌘Z">↶</button><button id="redo" title="重做 ⇧⌘Z">↷</button><button id="validate">检查画布</button><button id="run" class="primary">预检并运行</button></div>
+      </header>
+
+      <div class="workspace">
+        <aside class="leftbar">
+          <div class="panel-head"><div><small>NODE CATALOG</small><b>节点库</b></div><button id="collapse-left">‹</button></div>
+          <div class="search"><span>⌕</span><input id="node-search" placeholder="搜索节点或类型…" /></div>
+          <nav class="library-tabs"><button data-library-view="nodes" class="active">节点</button><button data-library-view="templates">模板</button><button data-library-view="plugins">插件</button></nav>
+          <div id="template-block" class="template-block" hidden><label>组合模板</label><select id="template-select"></select><button id="load-template">载入模板</button></div>
+          <div id="plugin-tools" class="plugin-tools" hidden><button id="open-plugin-studio">插件配置管理</button><small>管理 Schema、Skill Adapter 与测试</small></div>
+          <div id="catalog" class="catalog"></div>
+          <div class="left-foot"><span>拖入画布或双击添加</span><kbd>/</kbd></div>
+        </aside>
+
+        <main id="canvas-shell" class="canvas-shell" tabindex="0">
+          <div class="canvas-toolbar">
+            <div><button id="toggle-library">节点库</button><button id="add-node">＋ 添加节点</button><button id="auto-layout">拓扑布局</button><button id="fit-view">适配全图</button><button id="shortcut-help" title="快捷键 ?">快捷键</button></div>
+            <small class="canvas-hint">拖动节点 · 右键添加 · / 搜索</small>
+            <div class="canvas-stats"><span id="node-count">0 节点</span><span id="edge-count">0 连线</span><span id="zoom-label">100%</span></div>
+          </div>
+          <div id="canvas-viewport" class="canvas-viewport">
+            <div id="world" class="world">
+              <svg id="edges" class="edges" aria-hidden="true"></svg>
+              <div id="groups" class="groups"></div>
+              <div id="nodes" class="nodes"></div>
+            </div>
+            <div id="selection-box" class="selection-box" hidden></div>
+            <div id="empty-state" class="empty-state"><span>✦</span><b>从节点库开始搭建</b><p>拖入节点，或右键画布加载组合模板</p><button id="empty-add-node">打开节点库</button></div>
+            <div class="zoom-controls"><button id="zoom-in">＋</button><button id="zoom-reset">100</button><button id="zoom-out">−</button></div>
+            <div id="minimap" class="minimap" aria-label="画布缩略图"><div id="minimap-nodes"></div><div id="minimap-view"></div></div>
+          </div>
+          <div id="run-drawer" class="run-drawer">
+            <header><div><i id="run-dot"></i><b id="run-title">运行与调试</b><span id="run-summary">尚未创建运行</span></div><button id="close-drawer">×</button></header>
+            <div class="run-tabs"><button data-run-tab="overview" class="active">总览</button><button data-run-tab="nodes">节点</button><button data-run-tab="events">事件</button><button data-run-tab="io">输入输出</button><button data-run-tab="issues">问题</button><button data-run-tab="receipts">收据</button></div>
+            <div id="run-content" class="run-content"><div class="run-empty"><b>先检查画布，再创建模拟 NodeRun</b><span>当前原型只验证交互与契约，不调用真实模型。</span></div></div>
+          </div>
+        </main>
+
+        <aside id="inspector" class="inspector">
+          <div class="inspector-empty"><span>◇</span><b>选择一个节点或连线</b><p>在此配置端口、参数、资产、运行与版本。</p></div>
+        </aside>
+      </div>
+
+      <div id="context-menu" class="context-menu" hidden></div>
+      <div id="palette" class="palette" hidden><div><span>⌕</span><input id="palette-search" placeholder="添加节点或载入模板…" /><kbd>ESC</kbd></div><section id="palette-results"></section></div>
+      <div id="toast" class="toast" hidden></div>
+
+      <div id="asset-modal" class="modal-backdrop" hidden>
+        <div class="asset-modal">
+          <header><div><small>ASSET COLLECTION</small><h2>多资产添加与预览</h2></div><button data-close-modal>×</button></header>
+          <div class="asset-tools"><button class="active">工程资产</button><button>本机上传</button><button>节点产物</button><span></span><input placeholder="搜索角色、场景或镜号…" /></div>
+          <div id="asset-grid" class="asset-grid"></div>
+          <footer><div><b id="asset-selected">已选择 0 项</b><span>将按角色和顺序绑定到当前端口</span></div><button data-close-modal>取消</button><button id="bind-assets" class="primary">绑定所选资产</button></footer>
+        </div>
+      </div>
+
+      <div id="shortcut-modal" class="modal-backdrop" hidden>
+        <div class="shortcut-modal">
+          <header><div><small>CANVAS SHORTCUTS</small><h2>画布快捷键</h2></div><button data-close-shortcuts>×</button></header>
+          <div class="shortcut-grid">
+            <div><kbd>/</kbd><span>搜索并添加节点</span></div><div><kbd>F</kbd><span>适配全图</span></div>
+            <div><kbd>L</kbd><span>拓扑布局</span></div><div><kbd>G</kbd><span>将所选节点分组</span></div>
+            <div><kbd>D</kbd><span>启用／禁用所选节点</span></div><div><kbd>⌘ D</kbd><span>复制所选节点</span></div>
+            <div><kbd>⌘ Z</kbd><span>撤销</span></div><div><kbd>⇧ ⌘ Z</kbd><span>重做</span></div>
+            <div><kbd>Delete</kbd><span>删除所选</span></div><div><kbd>Esc</kbd><span>取消当前操作</span></div>
+            <div><kbd>Shift 点击</kbd><span>增减多选</span></div><div><kbd>Alt 拖动</kbd><span>平移画布</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="plugin-modal" class="modal-backdrop" hidden>
+        <div class="plugin-modal">
+          <header class="plugin-modal-head"><div><small>PLUGIN STUDIO</small><h2>插件配置管理</h2></div><div><span id="plugin-save-state">本地草稿</span><button data-close-plugins>×</button></div></header>
+          <div class="plugin-studio-body">
+            <aside class="plugin-list-panel"><button id="new-plugin" class="wide primary">＋ 新建插件</button><div id="plugin-list"></div></aside>
+            <main class="plugin-editor">
+              <div id="plugin-editor-head" class="plugin-editor-head"></div>
+              <nav class="plugin-editor-tabs"><button data-plugin-tab="definition" class="active">基本信息</button><button data-plugin-tab="ports">输入输出</button><button data-plugin-tab="skill">Skill 转换</button><button data-plugin-tab="test">测试台</button></nav>
+              <section id="plugin-editor-content" class="plugin-editor-content"></section>
+              <footer class="plugin-editor-foot"><button id="duplicate-plugin">复制版本</button><span></span><button id="save-plugin">保存草稿</button><button id="publish-plugin" class="primary">发布到节点库</button></footer>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <div id="artifact-modal" class="modal-backdrop" hidden>
+        <div class="artifact-modal">
+          <header><div><small>ARTIFACT VIEWER</small><h2 id="artifact-title">节点产物</h2></div><button data-close-artifact>×</button></header>
+          <div id="artifact-content" class="artifact-content"></div>
+          <footer><div><b id="artifact-meta">本地模拟产物</b><span>仅用于交互与契约验收</span></div><button data-close-artifact>关闭</button></footer>
+        </div>
+      </div>
+
+      <div id="workspace-modal" class="modal-backdrop" hidden>
+        <div class="workspace-modal">
+          <header><div><small>WORKSPACE</small><h2>工程与版本管理</h2></div><button data-close-workspace>×</button></header>
+          <div class="workspace-body">
+            <aside><button id="new-project" class="wide primary">＋ 新建工程</button><div id="project-list"></div></aside>
+            <main>
+              <nav class="workspace-tabs"><button data-workspace-tab="overview" class="active">工程概览</button><button data-workspace-tab="versions">工作流版本</button><button data-workspace-tab="runs">运行历史</button><button data-workspace-tab="dependencies">插件依赖</button><button data-workspace-tab="transfer">导入导出</button></nav>
+              <section id="workspace-content"></section>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./data/embedded-data.js"></script>
+    <script src="./graph-core.js"></script>
+    <script defer src="./main.js"></script>
+  </body>
+</html>

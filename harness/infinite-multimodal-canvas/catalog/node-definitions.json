@@ -1,0 +1,312 @@
+{
+  "catalogVersion": "0.2.0",
+  "types": [
+    "text.plain",
+    "text.prompt",
+    "document.script",
+    "image.single",
+    "image.collection",
+    "video.single",
+    "video.collection",
+    "mask.single",
+    "config.json",
+    "artifact.any",
+    "artifact.collection",
+    "report.validation",
+    "decision.review",
+    "decision.gate",
+    "control.signal"
+  ],
+  "definitions": [
+    {
+      "id": "content.prompt",
+      "version": "1.0.0",
+      "category": "content",
+      "title": "Prompt",
+      "description": "编写生成指令、变量与素材引用。",
+      "executorRef": null,
+      "inputs": [{ "id": "text", "type": "text.plain", "required": false, "cardinality": "one" }],
+      "outputs": [{ "id": "prompt", "type": "text.prompt", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "content.script",
+      "version": "1.0.0",
+      "category": "content",
+      "title": "脚本 / 文档",
+      "description": "导入正式脚本、镜号清单或结构化文档。",
+      "executorRef": null,
+      "inputs": [],
+      "outputs": [{ "id": "script", "type": "document.script", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "content.text",
+      "version": "1.0.0",
+      "category": "content",
+      "title": "纯文本",
+      "description": "为高级映射、变量和插件提供普通文本。",
+      "executorRef": null,
+      "inputs": [],
+      "outputs": [{ "id": "text", "type": "text.plain", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "content.image",
+      "version": "1.0.0",
+      "category": "content",
+      "title": "单图片",
+      "description": "作为首帧、尾帧、主参考或单图输入。",
+      "executorRef": null,
+      "inputs": [],
+      "outputs": [{ "id": "image", "type": "image.single", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "content.image-collection",
+      "version": "1.0.0",
+      "category": "content",
+      "title": "图片集合",
+      "description": "按角色、顺序和版本管理多张参考图。",
+      "executorRef": null,
+      "inputs": [],
+      "outputs": [{ "id": "images", "type": "image.collection", "required": true, "cardinality": "many" }]
+    },
+    {
+      "id": "content.video",
+      "version": "1.0.0",
+      "category": "content",
+      "title": "视频资产",
+      "description": "导入视频用于抽帧、校验或插件处理。",
+      "executorRef": null,
+      "inputs": [],
+      "outputs": [{ "id": "video", "type": "video.single", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "content.mask",
+      "version": "1.0.0",
+      "category": "content",
+      "title": "蒙版",
+      "description": "限定图生图的局部修改区域。",
+      "executorRef": null,
+      "inputs": [],
+      "outputs": [{ "id": "mask", "type": "mask.single", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "content.shared-config",
+      "version": "1.0.0",
+      "category": "content",
+      "title": "共享配置",
+      "description": "仅在多个节点复用同一组参数时使用。",
+      "executorRef": null,
+      "inputs": [],
+      "outputs": [{ "id": "config", "type": "config.json", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "generate.text-to-image",
+      "version": "1.0.0",
+      "category": "generation",
+      "title": "文生图",
+      "description": "根据 Prompt 生成一个或多个图片候选。",
+      "executorRef": "plugin://image-generation/text-to-image@1",
+      "inputs": [
+        { "id": "prompt", "type": "text.prompt", "required": true, "cardinality": "one" },
+        { "id": "config", "type": "config.json", "required": false, "cardinality": "one" }
+      ],
+      "outputs": [{ "id": "images", "type": "image.collection", "required": true, "cardinality": "many" }]
+    },
+    {
+      "id": "generate.image-to-image",
+      "version": "1.0.0",
+      "category": "generation",
+      "title": "图生图",
+      "description": "根据参考图、Prompt 与可选蒙版生成候选图。",
+      "executorRef": "plugin://image-generation/image-to-image@1",
+      "inputs": [
+        { "id": "images", "type": "image.collection", "required": true, "cardinality": "many", "minItems": 1, "maxItems": 20 },
+        { "id": "prompt", "type": "text.prompt", "required": true, "cardinality": "one" },
+        { "id": "mask", "type": "mask.single", "required": false, "cardinality": "one" },
+        { "id": "config", "type": "config.json", "required": false, "cardinality": "one" }
+      ],
+      "outputs": [{ "id": "images", "type": "image.collection", "required": true, "cardinality": "many" }]
+    },
+    {
+      "id": "generate.text-to-video",
+      "version": "1.0.0",
+      "category": "generation",
+      "title": "文生视频",
+      "description": "根据镜头描述生成视频候选。",
+      "executorRef": "plugin://video-generation/text-to-video@1",
+      "inputs": [
+        { "id": "prompt", "type": "text.prompt", "required": true, "cardinality": "one" },
+        { "id": "config", "type": "config.json", "required": false, "cardinality": "one" }
+      ],
+      "outputs": [{ "id": "videos", "type": "video.collection", "required": true, "cardinality": "many" }]
+    },
+    {
+      "id": "generate.image-to-video",
+      "version": "1.0.0",
+      "category": "generation",
+      "title": "图生视频",
+      "description": "使用明确的首帧、尾帧与动作描述生成视频。",
+      "executorRef": "plugin://video-generation/image-to-video@1",
+      "inputs": [
+        { "id": "firstFrame", "type": "image.single", "required": true, "cardinality": "one", "assetRole": "first_frame" },
+        { "id": "endFrame", "type": "image.single", "required": false, "cardinality": "one", "assetRole": "end_frame" },
+        { "id": "prompt", "type": "text.prompt", "required": true, "cardinality": "one" },
+        { "id": "config", "type": "config.json", "required": false, "cardinality": "one" }
+      ],
+      "outputs": [{ "id": "videos", "type": "video.collection", "required": true, "cardinality": "many" }]
+    },
+    {
+      "id": "transform.select-image",
+      "version": "1.0.0",
+      "category": "transform",
+      "title": "选择图片",
+      "description": "从图片集合中选择一张作为首帧或主参考。",
+      "executorRef": "builtin://select-image@1",
+      "inputs": [{ "id": "images", "type": "image.collection", "required": true, "cardinality": "one" }],
+      "outputs": [{ "id": "image", "type": "image.single", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "transform.merge-images",
+      "version": "1.0.0",
+      "category": "transform",
+      "title": "合并图片集合",
+      "description": "将多张单图和多个图片集合合并并排序。",
+      "executorRef": "builtin://merge-images@1",
+      "inputs": [
+        { "id": "image", "type": "image.single", "required": false, "cardinality": "many" },
+        { "id": "images", "type": "image.collection", "required": false, "cardinality": "many" }
+      ],
+      "outputs": [{ "id": "images", "type": "image.collection", "required": true, "cardinality": "many" }]
+    },
+    {
+      "id": "transform.extract-frames",
+      "version": "1.0.0",
+      "category": "transform",
+      "title": "视频抽帧",
+      "description": "从视频按时间、间隔或镜头变化提取图片。",
+      "executorRef": "builtin://extract-frames@1",
+      "inputs": [{ "id": "video", "type": "video.single", "required": true, "cardinality": "one" }],
+      "outputs": [{ "id": "images", "type": "image.collection", "required": true, "cardinality": "many" }]
+    },
+    {
+      "id": "transform.map-fields",
+      "version": "1.0.0",
+      "category": "transform",
+      "title": "字段映射",
+      "description": "将上游产物字段映射为插件或节点配置。",
+      "executorRef": "builtin://field-mapper@1",
+      "inputs": [{ "id": "artifact", "type": "artifact.any", "required": true, "cardinality": "one" }],
+      "outputs": [{ "id": "config", "type": "config.json", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "plugin.storyboard-draft",
+      "version": "1.4.0",
+      "category": "agent",
+      "title": "分镜草图生成",
+      "description": "已发布插件示例：根据脚本、Prompt 与参考图生成分镜。",
+      "source": "plugin",
+      "executorRef": "plugin://storyboard-draft/generate@1.4",
+      "inputs": [
+        { "id": "images", "type": "image.collection", "required": true, "cardinality": "many", "minItems": 1, "maxItems": 100 },
+        { "id": "prompt", "type": "text.prompt", "required": true, "cardinality": "one" },
+        { "id": "script", "type": "document.script", "required": false, "cardinality": "one" }
+      ],
+      "outputs": [{ "id": "images", "type": "image.collection", "required": true, "cardinality": "many" }]
+    },
+    {
+      "id": "control.condition",
+      "version": "1.0.0",
+      "category": "control",
+      "title": "条件分支",
+      "description": "根据 Gate 结论将流程分为通过与阻塞路径。",
+      "executorRef": "builtin://condition@1",
+      "inputs": [{ "id": "decision", "type": "decision.gate", "required": true, "cardinality": "one" }],
+      "outputs": [
+        { "id": "pass", "type": "control.signal", "required": true, "cardinality": "one" },
+        { "id": "blocked", "type": "control.signal", "required": true, "cardinality": "one" }
+      ]
+    },
+    {
+      "id": "control.join",
+      "version": "1.0.0",
+      "category": "control",
+      "title": "分支汇合",
+      "description": "等待多个控制分支完成后继续。",
+      "executorRef": "builtin://join@1",
+      "inputs": [{ "id": "signals", "type": "control.signal", "required": true, "cardinality": "many" }],
+      "outputs": [{ "id": "signal", "type": "control.signal", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "validate.image",
+      "version": "1.0.0",
+      "category": "quality",
+      "title": "图片校验",
+      "description": "检查尺寸、数量、构图、角色一致性与必需字段。",
+      "executorRef": "builtin://image-validator@1",
+      "inputs": [{ "id": "images", "type": "image.collection", "required": true, "cardinality": "many" }],
+      "outputs": [{ "id": "report", "type": "report.validation", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "validate.video",
+      "version": "1.0.0",
+      "category": "quality",
+      "title": "视频校验",
+      "description": "检查时长、分辨率、首尾帧、连续性与技术质量。",
+      "executorRef": "builtin://video-validator@1",
+      "inputs": [{ "id": "videos", "type": "video.collection", "required": true, "cardinality": "many" }],
+      "outputs": [{ "id": "report", "type": "report.validation", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "review.human",
+      "version": "1.0.0",
+      "category": "quality",
+      "title": "人工审核",
+      "description": "对媒体、脚本或报告给出通过、修改或拒绝结论。",
+      "executorRef": "builtin://human-review@1",
+      "inputs": [{ "id": "artifact", "type": "artifact.any", "required": true, "cardinality": "one" }],
+      "outputs": [{ "id": "review", "type": "decision.review", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "gate.quality",
+      "version": "1.0.0",
+      "category": "quality",
+      "title": "质量 Gate",
+      "description": "聚合校验与人工审核，决定流程是否放行。",
+      "executorRef": "builtin://quality-gate@1",
+      "inputs": [
+        { "id": "report", "type": "report.validation", "required": true, "cardinality": "many" },
+        { "id": "review", "type": "decision.review", "required": false, "cardinality": "one" }
+      ],
+      "outputs": [{ "id": "decision", "type": "decision.gate", "required": true, "cardinality": "one" }]
+    },
+    {
+      "id": "output.image-gallery",
+      "version": "1.0.0",
+      "category": "output",
+      "title": "图片结果",
+      "description": "预览、比较、选择并版本化图片候选。",
+      "executorRef": null,
+      "inputs": [{ "id": "images", "type": "image.collection", "required": true, "cardinality": "many" }],
+      "outputs": []
+    },
+    {
+      "id": "output.video-gallery",
+      "version": "1.0.0",
+      "category": "output",
+      "title": "视频结果",
+      "description": "播放、逐帧检查并选择视频版本。",
+      "executorRef": null,
+      "inputs": [{ "id": "videos", "type": "video.collection", "required": true, "cardinality": "many" }],
+      "outputs": []
+    },
+    {
+      "id": "output.artifacts",
+      "version": "1.0.0",
+      "category": "output",
+      "title": "交付包",
+      "description": "汇总异构产物、报告和发布清单。",
+      "executorRef": null,
+      "inputs": [{ "id": "artifacts", "type": "artifact.collection", "required": true, "cardinality": "many" }],
+      "outputs": []
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "infinite-multimodal-canvas-harness",
+  "version": "0.8.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node bin/sync-web-data.mjs && node bin/dev.mjs",
+    "build": "node bin/build.mjs",
+    "benchmark": "node bin/benchmark-canvas.mjs",
+    "build:xyflow-spike": "npm --prefix spikes/xyflow-canvas run build",
+    "validate": "node bin/validate.mjs",
+    "test": "node bin/sync-web-data.mjs && node --test tests/*.test.mjs"
+  }
+}
